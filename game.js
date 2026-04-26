@@ -472,6 +472,12 @@ class GameScene extends Phaser.Scene {
     // ZONA 2: Score (centro)
     this.scoreText = this.add.text(W / 2, 10, '⭐ 0', { fontSize: '24px', fontFamily: 'monospace', color: '#ffffff', fontStyle: 'bold' }).setOrigin(0.5, 0).setDepth(11).setShadow(2, 2, '#000');
 
+    // ZONA 3: Torres + pausa (derecha)
+    this.towerCountText = this.add.text(W - 8, 5, '🔥0 🌭0 🥟0 🏠0  (/3)', {
+      fontSize: '13px', fontFamily: 'monospace', color: '#88ffaa', fontStyle: 'bold'
+    }).setOrigin(1, 0).setDepth(11).setShadow(1, 1, '#000');
+    this.add.text(W - 8, 32, '[START] Pausa', { fontSize: '11px', fontFamily: 'monospace', color: '#776644' }).setOrigin(1, 0).setDepth(11);
+
     // ── Strip de mecánicas especiales (2 líneas) ────────────
     const hintBg = this.add.graphics().setDepth(10);
     hintBg.fillStyle(0x060301, 0.92); hintBg.fillRect(0, 50, W, 36);
@@ -484,6 +490,11 @@ class GameScene extends Phaser.Scene {
     this.add.text(W / 2, 70, '🚶 Piquetero → DEVORA 🌭 Chorizo + 🥟 Empanada   |   👔 Inspector (100px) → Paraliza   |   💀 Boss → Rompe torres (+25%)', {
       fontSize: '9px', fontFamily: 'monospace', color: '#998855', align: 'center'
     }).setOrigin(0.5, 0).setDepth(11);
+
+    // Wave text debajo del strip
+    this.waveText = this.add.text(W / 2, 88, 'Fase de Preparación... [START] Iniciar', {
+      fontSize: '15px', fontFamily: 'monospace', color: '#fff', backgroundColor: '#000000bb', padding: { x: 12, y: 4 }, fontStyle: 'bold'
+    }).setOrigin(0.5, 0).setDepth(11).setShadow(1, 1, '#ff6600');
 
     // ── Panel inferior torres (80px) ────────────────────────
     const panelBg = this.add.graphics().setDepth(10);
